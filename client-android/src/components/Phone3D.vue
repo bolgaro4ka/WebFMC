@@ -42,14 +42,36 @@ const rotateZ = computed(() =>
           rotateZ(${rotateZ}deg)
         `
         }">
-            <div class="screen"></div>
-            <div class="left-side"></div>
+            <div class="screen">
+                <img src="/images/models/phone/screen.png" alt="">
+            </div>
+            <div class="back">
+                <img src="/images/models/phone/back.png" alt="">
+            </div>
+            <div class="left-side">
+                <img src="/images/models/phone/left-side.png" alt="">
+            </div>
+            <div class="right-side">
+                <img src="/images/models/phone/right-side.png" alt="">
+            </div>
+            <div class="top-side">
+                <img src="/images/models/phone/top-side.png" alt="">
+            </div>
+            <div class="bottom-side">
+                <img src="/images/models/phone/bottom-side.png" alt="">
+            </div>
+            <!-- <div class="axis">
+                <div class="y"></div>
+                <div class="x"></div>
+                <div class="z"></div>
+            </div> -->
+            
         </div>
     </div>
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
 .scene {
     width: 100%;
     height: 300px;
@@ -63,26 +85,66 @@ const rotateZ = computed(() =>
     width: 120px;
     height: 240px;
     border-radius: 20px;
-    background: linear-gradient(145deg, #111, #333);
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        inset 0 0 0 2px #555;
     transform-style: preserve-3d;
     transition: transform 0.06s linear;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .screen {
     position: absolute;
+    width: 120px;
+    height: 260px;
     inset: 8px;
-    background: linear-gradient(180deg, #222, #000);
-    border-radius: 14px;
+
+    
+}
+
+.back {
+    position: absolute;
+    width: 120px;
+    height: 260px;
+    inset: 8px;
+    transform: rotateY(180deg) translateZ(10px);
 }
 
 .left-side {
     position: absolute;
+    width: 10px;
+    height: 260px;
     inset: 8px;
-    transform: rotateY(90deg);
-    border-radius: 14px;
-    background-color: red;
+    transform: rotateY(-90deg) translateZ(5px) translateX(-5px);
 }
+
+.right-side {
+    width: 10px;
+    height: 260px;
+    position: absolute;
+    inset: 8px;
+    transform: rotateY(90deg) translateX(5px) translateZ(115px);
+}
+
+.top-side {
+    position: absolute;
+    width: 120px;
+    height: 10px;
+    inset: 8px;
+    transform: rotateX(90deg) translateY(-8px) translateZ(5px);
+}
+
+.bottom-side {
+     width: 120px;
+    height: 10px;
+    position: absolute;
+    inset: 8px;
+    transform: rotateX(-90deg) translateY(2px) translateZ(255px);
+}
+
+
+
+
 </style>
